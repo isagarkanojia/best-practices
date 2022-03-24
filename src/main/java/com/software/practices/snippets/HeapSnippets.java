@@ -34,12 +34,10 @@ public class HeapSnippets {
 
         priorityQueue.add(new CategoryConfig(1, "FASHION", true));
 
-        while (true) {
-            CategoryConfig e = priorityQueue.peek();
-            System.out.println(e);
 
-            if (e == null) break;
-        }
+        CategoryConfig e = priorityQueue.peek();
+        System.out.println(e);
+
     }
 
 
