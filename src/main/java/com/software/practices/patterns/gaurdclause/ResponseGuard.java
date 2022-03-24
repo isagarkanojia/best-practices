@@ -7,7 +7,6 @@ import java.util.Objects;
 /**
  * @author Sagar Kanojia
  */
-@Log4j
 public class ResponseGuard {
 
     public static void AgainstNull(Object argument, String argumentName) throws CustomException {
