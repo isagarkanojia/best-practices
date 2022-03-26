@@ -1,16 +1,19 @@
 package com.software.practices.solutions;
 
+import com.software.practices.solutions.stopwatch.FinishedStopwatch;
 import com.software.practices.solutions.stopwatch.RunningStopwatch;
 import com.software.practices.solutions.stopwatch.Stopwatch;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Sagar Kanojia
  */
+@Slf4j
 public class EnforceMethodCallSequence {
 
     public static void main(String[] args) {
 
-        RunningStopwatch runningStopwatch = Stopwatch.createRunning();
+        RunningStopwatch runningStopwatch = Stopwatch.createRunning("main");
 
 
         try {
@@ -20,10 +23,9 @@ public class EnforceMethodCallSequence {
         }
 
 
-        long elapsedTime = runningStopwatch.stop().getElapsedNanos();
+        FinishedStopwatch finishedStopwatch = runningStopwatch.stop();
 
-
-        System.out.println("Total Time: " + elapsedTime);
+        log.info("elapsed time: {}", finishedStopwatch.getElapsedNanos());
 
     }
 }
