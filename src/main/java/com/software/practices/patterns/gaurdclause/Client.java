@@ -1,5 +1,6 @@
 package com.software.practices.patterns.gaurdclause;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -8,6 +9,7 @@ import java.util.UUID;
  * @author Sagar Kanojia
  */
 @Component
+@Slf4j
 public class Client {
 
     public static void main(String[] args) {
@@ -32,6 +34,7 @@ public class Client {
 
         } catch (CustomException e) {
             // return custom response in case errors
+            log.error(" ", e.getCause());
         }
 
     }

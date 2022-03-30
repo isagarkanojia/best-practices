@@ -20,7 +20,7 @@ public class ResponseGuard {
 
         AgainstNull(argument, argumentName);
 
-        if (Objects.isNull(argument.getStatus()) || Objects.equals(ReesponseStatus.FAILED, argument.getStatus())) {
+        if (Objects.isNull(argument.getStatus()) || Objects.equals(ReesponseStatus.FAILED.name(), argument.getStatus())) {
             throw new CustomException(argumentName);
         }
 
