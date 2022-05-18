@@ -22,7 +22,7 @@ public class GoogleGsonSnippets {
             "  },\n" +
             "  {\n" +
             "    \"order\": 2,\n" +
-            "    \"type\": \"Fasion\",\n" +
+            "    \"type\": \"Fashion\",\n" +
             "    \"active\": true\n" +
             "  }\n" +
             "]";

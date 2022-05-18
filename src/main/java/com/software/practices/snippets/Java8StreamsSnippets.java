@@ -30,4 +30,16 @@ public class Java8StreamsSnippets {
 
         return kycPreferencesConfigMap;
     }
+
+    public static List<CategoryConfig> filter(List<CategoryConfig> configs){
+
+        Set<String> types = new HashSet<>();
+        types.add("Fashion");
+        types.add("Cloths");
+
+        List<CategoryConfig> result = configs.stream()
+                .filter(p -> types.contains(p.getType())).collect(Collectors.toList());
+
+        return result;
+    }
 }
