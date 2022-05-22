@@ -1,5 +1,6 @@
 package com.software.practices.snippets;
 
+import com.google.gson.Gson;
 import com.software.practices.snippets.dtos.CategoryConfig;
 
 import java.util.*;
@@ -23,15 +24,23 @@ public class Java8StreamsSnippets {
 
     public static Map<String, CategoryConfig> listToMap(List<CategoryConfig> configs) {
 
-        Map<String, CategoryConfig> kycPreferencesConfigMap = new HashMap<>();
+        Map<String, CategoryConfig> map = new HashMap<>();
 
-        kycPreferencesConfigMap = configs.stream()
+        map = configs.stream()
                 .collect(Collectors.toMap(CategoryConfig::getType, Function.identity()));
 
-        return kycPreferencesConfigMap;
+        return map;
     }
 
-    public static List<CategoryConfig> filter(List<CategoryConfig> configs){
+    public static Map<String, List<CategoryConfig>> listToGroupByMap(List<CategoryConfig> configs) {
+
+        Map<String, List<CategoryConfig>> map = configs.stream()
+                .collect(Collectors.groupingBy(CategoryConfig::getType));
+
+        return map;
+    }
+
+    public static List<CategoryConfig> filter(List<CategoryConfig> configs) {
 
         Set<String> types = new HashSet<>();
         types.add("Fashion");
