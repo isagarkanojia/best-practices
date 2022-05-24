@@ -8,6 +8,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.groupingBy;
+
 /**
  * @author Sagar Kanojia
  */
@@ -36,6 +38,14 @@ public class Java8StreamsSnippets {
 
         Map<String, List<CategoryConfig>> map = configs.stream()
                 .collect(Collectors.groupingBy(CategoryConfig::getType));
+
+        return map;
+    }
+
+    public static Map<String, List<CategoryConfig>> listToGroupByMapNullKeySafe(List<CategoryConfig> configs) {
+
+        Map<String, List<CategoryConfig>> map = configs.stream()
+           .collect(groupingBy(config -> config.getType() == null ? "nullType" : config.getType()));
 
         return map;
     }
