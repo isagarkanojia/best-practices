@@ -32,6 +32,13 @@ public class GoogleGsonSnippets {
             "  }\n" +
             "]";
 
+    public static final String categoryJson =
+            "  {\n" +
+            "    \"order\": 2,\n" +
+            "    \"type\": \"Fashion\",\n" +
+            "    \"active\": true\n" +
+            "  }\n";
+
 
     private CategoryConfig[] jsonToArray() {
 
@@ -49,4 +56,12 @@ public class GoogleGsonSnippets {
         return configs;
     }
 
+    private CategoryConfig jsonToObject() {
+
+        CategoryConfig config = new Gson().fromJson(categoryJson, CategoryConfig.class);
+
+        System.out.println(config);
+
+        return config;
+    }
 }
