@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Sagar Kanojia
@@ -41,29 +42,55 @@ public class RunningProcessInBatches {
 
                 } catch (Exception e) {
                     log.error("Error in Batch Start {} End {}", startIndex, endIndex);
+                    throw new RuntimeException();
                 }
 
                 startIndex = endIndex;
 
             }
         } finally {
+            System.out.println("CALLING SHUTDOWN");
             executorService.shutdown();
+        }
+
+        try {
+            System.out.println("awaitTermination START");
+            executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+            System.out.println("awaitTermination END ");
+        } catch (Exception e) {
+
+        }finally {
+            System.out.println("FINALLY DONE");
         }
     }
 
     private void processBatch(List<Integer> batch) {
 
         for (Integer id : batch) {
-            System.out.print(id + ",");
+            processOne(id);
         }
 
+    }
+
+    private void processOne(Integer id) {
+
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+            new RuntimeException();
+        }
+
+        new RuntimeException();
+
+        System.out.println("Processed " + id);
     }
 
     public static void main(String[] args) {
 
         List<Integer> input = new ArrayList<>();
 
-        for (int x = 0; x < 300; x++) {
+        for (int x = 0; x < 10; x++) {
             input.add(x);
         }
 
