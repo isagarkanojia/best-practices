@@ -54,7 +54,7 @@ public class RunningProcessInBatches {
 
         try {
             System.out.println("awaitTermination START");
-            executorService.awaitTermination(5, TimeUnit.SECONDS);
+            executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS);
             System.out.println("awaitTermination END ");
         } catch (InterruptedException e) {
             log.error("awaitTermination ERROR ", e);
