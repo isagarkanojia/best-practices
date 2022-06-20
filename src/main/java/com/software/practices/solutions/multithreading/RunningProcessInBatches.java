@@ -42,7 +42,6 @@ public class RunningProcessInBatches {
 
                 } catch (Exception e) {
                     log.error("Error in Batch Start {} End {}", startIndex, endIndex);
-                    throw new RuntimeException();
                 }
 
                 startIndex = endIndex;
@@ -55,11 +54,11 @@ public class RunningProcessInBatches {
 
         try {
             System.out.println("awaitTermination START");
-            executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+            executorService.awaitTermination(5, TimeUnit.SECONDS);
             System.out.println("awaitTermination END ");
-        } catch (Exception e) {
-
-        }finally {
+        } catch (InterruptedException e) {
+            log.error("awaitTermination ERROR ", e);
+        } finally {
             System.out.println("FINALLY DONE");
         }
     }
@@ -76,12 +75,10 @@ public class RunningProcessInBatches {
 
         try {
             Thread.sleep(1000);
-        } catch (Exception e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
-            new RuntimeException();
         }
 
-        new RuntimeException();
 
         System.out.println("Processed " + id);
     }
