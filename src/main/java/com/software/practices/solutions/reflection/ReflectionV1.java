@@ -15,7 +15,7 @@ import java.util.List;
 @Slf4j
 public class ReflectionV1 {
 
-    public static void main(String[] args) throws IntrospectionException, ReflectiveOperationException {
+    public static void main(String[] args)  {
 
         Data data = new Data().builder()
                 .name("Sagar")
