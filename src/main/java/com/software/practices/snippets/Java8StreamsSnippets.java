@@ -1,6 +1,5 @@
 package com.software.practices.snippets;
 
-import com.google.gson.Gson;
 import com.software.practices.snippets.dtos.CategoryConfig;
 
 import java.util.*;
@@ -60,5 +59,13 @@ public class Java8StreamsSnippets {
                 .filter(p -> types.contains(p.getType())).collect(Collectors.toList());
 
         return result;
+    }
+
+    public static Map<String, CategoryConfig> listToMapWithMergeFunction(List<CategoryConfig> configs) {
+
+        Map<String, CategoryConfig> map = configs.stream()
+                .collect(Collectors.toMap(CategoryConfig::getType, Function.identity(),(o1,o2) -> o1));
+
+        return map;
     }
 }

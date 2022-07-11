@@ -17,16 +17,16 @@ public class GoogleGsonSnippets {
     public static final String categoriesJson = "[\n" +
             "  {\n" +
             "    \"order\": 2,\n" +
-            "    \"type\": \"Cloths\",\n" +
+            "    \"type\": \"Fashion\",\n" +
             "    \"active\": true\n" +
             "  },\n" +
             "  {\n" +
             "    \"order\": 1,\n" +
-            "    \"type\": \"Electronics\",\n" +
+            "    \"type\": \"Fashion\",\n" +
             "    \"active\": true\n" +
             "  },\n" +
             "  {\n" +
-            "    \"order\": 2,\n" +
+            "    \"order\": 3,\n" +
             "    \"type\": \"Fashion\",\n" +
             "    \"active\": true\n" +
             "  }\n" +
