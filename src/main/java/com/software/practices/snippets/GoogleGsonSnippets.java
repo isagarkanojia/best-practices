@@ -64,4 +64,8 @@ public class GoogleGsonSnippets {
 
         return config;
     }
+
+    private String classToString(CategoryConfig config) {
+        return new Gson().toJson(config);
+    }
 }
