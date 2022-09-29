@@ -39,9 +39,9 @@ public class ExactTrafficSplitting {
                     break;
             }
         }
-        System.out.println("aBucketCount" + aBucketCount);
-        System.out.println("bBucketCount" + bBucketCount);
-        System.out.println("cBucketCount" + cBucketCount);
+        System.out.println("aBucketCount: " + aBucketCount);
+        System.out.println("bBucketCount: " + bBucketCount);
+        System.out.println("cBucketCount: " + cBucketCount);
     }
 
 }
