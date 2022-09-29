@@ -1,4 +1,4 @@
-package com.software.practices.solutions;
+package com.software.practices.solutions.others;
 
 import com.software.practices.solutions.stopwatch.FinishedStopwatch;
 import com.software.practices.solutions.stopwatch.RunningStopwatch;
