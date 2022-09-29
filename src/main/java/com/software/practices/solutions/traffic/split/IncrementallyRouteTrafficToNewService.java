@@ -3,6 +3,7 @@ package com.software.practices.solutions.traffic.split;
 import com.software.practices.utils.DummyDataUtils;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.Random;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
 
@@ -46,6 +47,13 @@ public class IncrementallyRouteTrafficToNewService {
         long bucket = hash % NUM_BUCKETS;
 
         return (bucket + 1 <= rampUpPercent);
+    }
+
+    public static boolean routeRequestBasedOnRampUpUsingRandom(String id, int rampUpPercent) {
+
+        int computedValue = 1 + new Random().nextInt(100);
+
+        return (computedValue + 1 <= rampUpPercent);
     }
 
 
