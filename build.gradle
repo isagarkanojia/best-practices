@@ -28,6 +28,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
     testCompileOnly 'org.projectlombok:lombok'
+    implementation 'commons-codec:commons-codec:1.15'
 }
 
 tasks.named('test') {
