@@ -11,7 +11,7 @@ import java.util.zip.Checksum;
  * @author Sagar Kanojia
  * Incrementally routing traffic to new service
  */
-public class IncrementallyRouteTrafficToNewService {
+public class UsingRandomRouteTrafficToNewService {
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
 
@@ -22,7 +22,7 @@ public class IncrementallyRouteTrafficToNewService {
         for (String id : list) {
             System.out.print(id + " ");
 
-            boolean shouldRoute = routeRequestBasedOnRampUp(id, 20);
+            boolean shouldRoute = routeRequestBasedOnRampUpUsingRandom(id, 50);
 
             if (shouldRoute) {
                 ServiceTwo++;
@@ -37,19 +37,15 @@ public class IncrementallyRouteTrafficToNewService {
         System.out.println("Service Two " + ServiceTwo);
     }
 
+    public static boolean routeRequestBasedOnRampUpUsingRandom(String id, int rampUpPercent) {
 
-    public static boolean routeRequestBasedOnRampUp(String id, int rampUpPercent) {
-        long NUM_BUCKETS = 100;
+        int computedValue = 1 + new Random().nextInt(100);
 
-        long hash = stringToCRC32Hash(id);
-
-        long bucket = hash % NUM_BUCKETS;
-
-        return (bucket + 1 <= rampUpPercent);
+        return (computedValue + 1 <= rampUpPercent);
     }
 
 
-    public static long stringToCRC32Hash(String string) {
+    public static long stringToCRC32Hash(String string) throws NoSuchAlgorithmException {
         byte[] bytes = string.getBytes();
         Checksum checksum = new CRC32();
         checksum.update(bytes, 0, bytes.length);

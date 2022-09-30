@@ -17,9 +17,9 @@ public class ExactTrafficSplitting {
 
     public static void splitTest() {
         List<BucketInfo> bucketInfoList = new ArrayList<>();
-        bucketInfoList.add(new BucketInfo('a', 6));
-        bucketInfoList.add(new BucketInfo('b', 1));
-        bucketInfoList.add(new BucketInfo('c', 3));
+        bucketInfoList.add(new BucketInfo('a', 5));
+        bucketInfoList.add(new BucketInfo('b', 4));
+        bucketInfoList.add(new BucketInfo('c', 1));
 
         Distributor distributor = new Distributor(bucketInfoList);
 
@@ -39,9 +39,9 @@ public class ExactTrafficSplitting {
                     break;
             }
         }
-        System.out.println("aBucketCount: " + aBucketCount);
-        System.out.println("bBucketCount: " + bBucketCount);
-        System.out.println("cBucketCount: " + cBucketCount);
+        System.out.println("A BucketCount: " + aBucketCount);
+        System.out.println("B BucketCount: " + bBucketCount);
+        System.out.println("C BucketCount: " + cBucketCount);
     }
 
 }
