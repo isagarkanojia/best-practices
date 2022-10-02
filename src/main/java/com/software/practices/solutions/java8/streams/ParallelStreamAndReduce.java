@@ -1,4 +1,4 @@
-package com.software.practices.solutions.streams;
+package com.software.practices.solutions.java8.streams;
 
 import java.util.Arrays;
 import java.util.List;

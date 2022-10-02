@@ -1,4 +1,4 @@
-package com.software.practices.solutions.streams;
+package com.software.practices.solutions.java8.streams;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author Sagar Kanojia
  */
-public class SumOfDoubleOfEvenNumbers {
+public class Streams1 {
 
     public static void main(String[] args) {
 
@@ -42,7 +42,8 @@ public class SumOfDoubleOfEvenNumbers {
 
         int total = 0;
 
-        total = numbers.stream()
+        total = numbers
+                .stream()
                 .filter(number -> number % 2 == 0)
                 .mapToInt(number -> number * 2)
                 .sum();

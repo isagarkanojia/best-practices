@@ -1,4 +1,4 @@
-package com.software.practices.solutions.streams;
+package com.software.practices.solutions.java8.streams;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 /**
  * @author Sagar Kanojia
  */
-public class NoAbilityToCreateStreamOfYourOwn {
+public class Streams3 {
 
     public static int process(int number) {
 
@@ -27,8 +27,7 @@ public class NoAbilityToCreateStreamOfYourOwn {
 
     // intermediate ops and terminal ops
     public static void use(Stream<Integer> stream) {
-        stream.parallel()
-                .map(number -> process(number))
+        stream.map(number -> process(number))
                 .forEach(System.out::println);
     }
 

@@ -47,9 +47,11 @@ public class MD5Hash {
 
 
     public String stringToMD5HashUsingApacheCommon(String string) {
-        String md5Hex = DigestUtils
-                .md5Hex(string).toUpperCase();
-        return md5Hex;
+//        String md5Hex = DigestUtils
+//                .md5Hex(string).toUpperCase();
+//        return md5Hex;
+
+        return null;
     }
 
 

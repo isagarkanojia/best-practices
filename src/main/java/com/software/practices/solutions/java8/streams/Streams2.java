@@ -1,4 +1,4 @@
-package com.software.practices.solutions.streams;
+package com.software.practices.solutions.java8.streams;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,11 +6,9 @@ import java.util.List;
 /**
  * @author Sagar Kanojia
  */
-public class ParallelStreamBaseWithThreadInfo {
+public class Streams2 {
 
     public static int process(int number){
-
-        System.out.println("thread "+number+" "+Thread.currentThread());
 
         // to mimic, it is an intensive task
         sleep(1000);
@@ -19,26 +17,24 @@ public class ParallelStreamBaseWithThreadInfo {
 
     }
 
-    // We solve on set of problem
-    // only to create other set of problem
 
-    // Java 1 Threads, not good to create thread after threads
+    // master switch -- stream to parallel stream
 
-    // Java 5 ExecutorServices, pool of threads, pool of problems
-    // Pool induced deadlock
+    // In imperative style code the structure of code is very different
+    // from the structure of concurrent code
 
-    //Workstealing - fork join pool
-    //Java 7 FJP //40
+    // Using stream, the benefit is
+    // the structure of sequential code is identical to the concurrent code
 
-    //Common FJP
-    //Java 8 uses the same
+    // The challenge , a lot of mutability in the code
+    // mutability and parallel don't go together
     public static void main(String[] args) {
 
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
         numbers.stream()
                 .map( number -> process(number))
-                .forEach( number -> {});
+                .forEach(System.out::println);
     }
 
 
