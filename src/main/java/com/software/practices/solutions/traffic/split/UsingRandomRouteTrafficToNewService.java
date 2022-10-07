@@ -43,12 +43,4 @@ public class UsingRandomRouteTrafficToNewService {
 
         return (computedValue + 1 <= rampUpPercent);
     }
-
-
-    public static long stringToCRC32Hash(String string) throws NoSuchAlgorithmException {
-        byte[] bytes = string.getBytes();
-        Checksum checksum = new CRC32();
-        checksum.update(bytes, 0, bytes.length);
-        return checksum.getValue();
-    }
 }
